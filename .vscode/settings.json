@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "dimencube-1.slnx"
+    "dotnet.defaultSolution": "dimencube.slnx"
 }

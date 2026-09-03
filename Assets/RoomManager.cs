@@ -13,8 +13,8 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         // testing
-        if (Input.GetKeyDown(KeyCode.Q) && !isRotating) StartCoroutine(RotateRoom(1));
-        if (Input.GetKeyDown(KeyCode.E) && !isRotating) StartCoroutine(RotateRoom(-1));
+        // if (Input.GetKeyDown(KeyCode.Q) && !isRotating) StartCoroutine(RotateRoom(1));
+        // if (Input.GetKeyDown(KeyCode.E) && !isRotating) StartCoroutine(RotateRoom(-1));
     }
 
     public void TriggerEdge(string edgeTag)

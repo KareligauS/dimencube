@@ -39,16 +39,16 @@ public class lever : MonoBehaviour
 
     private IEnumerator MoveLamp()
     {
-        Vector3 startPos = target.position;
+        Vector3 startPos = target.localPosition;
         Vector3 endPos = startPos + targerPosOffset;
         float timer = 0;
 
         while (timer < moveDuration)
         {
-            target.position = Vector3.Lerp(startPos,endPos, timer/moveDuration);
+            target.localPosition = Vector3.Lerp(startPos,endPos, timer/moveDuration);
             timer += Time.deltaTime;
             yield return null;
         }
-        target.position = endPos;
+        target.localPosition = endPos;
     }
 }

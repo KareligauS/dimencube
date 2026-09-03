@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     private float groundDist = 3.1f;
 
-    public float groundCheck = 2f;
+    public float groundCheck = 3f;
     public float slide = 2f;
     public bool isOnIce = false;
     public float fallMult = 3f;
@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
           rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMult - 1) * Time.fixedDeltaTime;
         }
 
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDist);
 
     }
 }

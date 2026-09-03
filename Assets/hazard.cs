@@ -13,7 +13,7 @@ public class hazard : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            m.PlayerDie();
+            m.Respawn();
         }
     }
 }

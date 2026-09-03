@@ -39,7 +39,7 @@ public class RoomManager : MonoBehaviour
         playerRb.linearVelocity = Vector3.zero;
         playerRb.isKinematic = true;
 
-        float teleportX = direction == 1 ? -3.5f : 3.5f;
+        float teleportX = direction == 1 ? -41f : 41f;
         player.position = new Vector3(teleportX, player.position.y, player.position.z);
         Quaternion startRotation = roomPivot.rotation;
         Quaternion targetRotation = startRotation * Quaternion.Euler(0, 90 * direction, 0);

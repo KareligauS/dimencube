@@ -13,11 +13,7 @@ public class PlayerController : MonoBehaviour
     private float groundDist = 3.1f;
 
     public float groundCheck = 2f;
-<<<<<<< HEAD
-    public float slide = 3f;
-=======
     public float slide = 2f;
->>>>>>> 29c1206e8becbad514a402f408bdd7d055315593
     public bool isOnIce = false;
     public float fallMult = 3f;
 
@@ -39,11 +35,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (!canMove) return;
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> 29c1206e8becbad514a402f408bdd7d055315593
         RaycastHit hit;
         isGrounded = Physics.SphereCast(transform.position, groundCheck, Vector3.down, out hit, groundCheck);
 
@@ -61,11 +53,7 @@ public class PlayerController : MonoBehaviour
 
         if (rb.linearVelocity.y < 0)
         {
-<<<<<<< HEAD
-          rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMult - 1) * Time.fixedDeltaTime;  
-=======
           rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMult - 1) * Time.fixedDeltaTime;
->>>>>>> 29c1206e8becbad514a402f408bdd7d055315593
         }
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDist);

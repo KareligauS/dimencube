@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
+    public float moveSpeed = 20f;
+    public float jumpForce = 10f;
     private Rigidbody rb;
     private bool isGrounded;
     public bool canMove = true; 
     private float moveInput;
+    private float groundDist = 3.1f;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
         rb.linearVelocity = new Vector3(moveInput * moveSpeed, rb.linearVelocity.y, 0);
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDist);
+
     }
 }

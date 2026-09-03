@@ -9,6 +9,7 @@ public class RoomManager : MonoBehaviour
     public float rotationDuration = 0.5f;
 
     private bool isRotating = false;
+    private bool isCooldown = false;
 
     void Update()
     {
@@ -19,7 +20,7 @@ public class RoomManager : MonoBehaviour
 
     public void TriggerEdge(string edgeTag)
     {
-        if (isRotating) return;
+        if (isRotating || isCooldown) return;
         if (edgeTag == "RightEdge")
         {
             StartCoroutine(RotateRoom(1));
@@ -39,8 +40,7 @@ public class RoomManager : MonoBehaviour
         playerRb.linearVelocity = Vector3.zero;
         playerRb.isKinematic = true;
 
-        float teleportX = direction == 1 ? -41f : 41f;
-        player.position = new Vector3(teleportX, player.position.y, player.position.z);
+        player.SetParent(roomPivot);
         Quaternion startRotation = roomPivot.rotation;
         Quaternion targetRotation = startRotation * Quaternion.Euler(0, 90 * direction, 0);
         float timeElapsed = 0;
@@ -52,8 +52,18 @@ public class RoomManager : MonoBehaviour
         }
         roomPivot.rotation = targetRotation;
 
+        player.SetParent(null);
+        player.rotation = Quaternion.identity;
+        float finalX = direction == 1 ? -38f : 38f;
+        player.position = new Vector3(finalX, player.position.y, -41f);
+
         playerRb.isKinematic = false;
         playerController.canMove = true;
         isRotating = false;
+
+        isCooldown = true;
+        yield return new WaitForSeconds(0.2f);
+        isCooldown = false;
+    
     }
 }

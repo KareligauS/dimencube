@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private float moveInput;
     private float groundDist = 3.1f;
 
+    public float groundCheck = 2f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,6 +32,9 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
         rb.linearVelocity = new Vector3(moveInput * moveSpeed, rb.linearVelocity.y, 0);
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDist);
+
+        RaycastHit hit;
+        isGrounded = Physics.SphereCast(transform.position, groundCheck, Vector3.down, out hit, groundCheck);
 
     }
 }

@@ -10,14 +10,14 @@ public class moving : MonoBehaviour
 
     void Start()
     {
-        startPos = transform.position;
+        startPos = transform.localPosition;
         targetPos = startPos + moveOffset;
     }
 
     void Update()
     {
         float time = Mathf.PingPong(Time.time * speed, 1);
-        transform.position = Vector3.Lerp(startPos, targetPos, time);
+        transform.localPosition = Vector3.Lerp(startPos, targetPos, time);
     }
 
     void OnCollisionEnter(Collision collision)

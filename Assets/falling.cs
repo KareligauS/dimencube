@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class falling : MonoBehaviour
 {
@@ -22,8 +23,14 @@ public class falling : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !isTriggered)
         {
-            isTriggered = true;
-            StartCoroutine(FallAndResp());
+            float top = GetComponent<Collider>().bounds.max.y;
+            float impactPoint = collision.contacts[0].point.y;
+            if (impactPoint >= top - 0.2f)
+            {
+                isTriggered = true;
+                StartCoroutine(FallAndResp());
+            }
+            
         }
     }
 
@@ -32,11 +39,13 @@ public class falling : MonoBehaviour
         yield return new WaitForSeconds(delay);
         rb.isKinematic = false;
         yield return new WaitForSeconds(respawnTime);
-        rb.isKinematic = true;
+
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        transform.position = startPos;
-        transform.rotation = startRotation;
+        rb.isKinematic = true;
+
+        transform.localPosition = startPos;
+        transform.localRotation = startRotation;
         isTriggered = false;
     }
 

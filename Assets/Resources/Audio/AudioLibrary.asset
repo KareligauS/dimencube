@@ -38,7 +38,7 @@ MonoBehaviour:
     _pitch: 1
     _cooldown: 0
   walkingSFX:
-    _clip: {fileID: 8300000, guid: c3e0d5a391ef1420bb951a48f5454cb4, type: 3}
+    _clip: {fileID: 8300000, guid: 900bb3bde213d4c8faf8b8d8bbcd0a18, type: 3}
     _volume: 1
     _pitch: 1
     _cooldown: 0
@@ -64,6 +64,16 @@ MonoBehaviour:
     _cooldown: 0
   keySFX:
     _clip: {fileID: 8300000, guid: c79b79c83e9944f11b155593d3480c83, type: 3}
+    _volume: 1
+    _pitch: 1
+    _cooldown: 0
+  orchestraSFX:
+    _clip: {fileID: 8300000, guid: 708efcc1ed8b14d6fad585ec6b965dad, type: 3}
+    _volume: 1
+    _pitch: 1
+    _cooldown: 0
+  curiositySFX:
+    _clip: {fileID: 8300000, guid: 107e9ce4c0a9a4058819ba230a92ba88, type: 3}
     _volume: 1
     _pitch: 1
     _cooldown: 0

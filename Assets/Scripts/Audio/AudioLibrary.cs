@@ -14,4 +14,6 @@ public class AudioLibrary : ScriptableObject
     public SoundDefinition fallSFX;
     public SoundDefinition slidingSFX;
     public SoundDefinition keySFX;
+    public SoundDefinition orchestraSFX;
+    public SoundDefinition curiositySFX;
 }

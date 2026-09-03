@@ -11,4 +11,6 @@ public enum AudioClipEnum
     Fall,
     Sliding,
     Key,
+    Orchestra,
+    Curiosity,
 }

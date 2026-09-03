@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour, IAudioManager
 
     [SerializeField, Range(0f, 1f)] private float _backgroundMusicVolume = 0.3f;
 
+    [SerializeField] private AudioClipEnum _defaultBackgroundMusic = AudioClipEnum.Curiosity;
+
     private AudioSource _musicAudioSource;
     private AudioSource _sfxAudioSource;
     private IAudioSoundResolver _audioSoundResolver;
@@ -36,7 +38,7 @@ public class AudioManager : MonoBehaviour, IAudioManager
 
     void Start()
     {
-        PlayBackgroundMusic(AudioClipEnum.BackgroundMusic);
+        PlayBackgroundMusic(_defaultBackgroundMusic);
     }
 
     public void PlaySFX(AudioClipEnum audioClipEnum)

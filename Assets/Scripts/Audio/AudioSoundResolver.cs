@@ -29,6 +29,8 @@ public class AudioSoundResolver : IAudioSoundResolver
             AudioClipEnum.Fall => _audioLibrary.fallSFX,
             AudioClipEnum.Sliding => _audioLibrary.slidingSFX,
             AudioClipEnum.Key => _audioLibrary.keySFX,
+            AudioClipEnum.Orchestra => _audioLibrary.orchestraSFX,
+            AudioClipEnum.Curiosity => _audioLibrary.curiositySFX,
             _ => null,
         };
 

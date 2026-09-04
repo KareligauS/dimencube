@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting;
+using VContainer;
 using UnityEngine;
 
 public class lever : MonoBehaviour
@@ -10,11 +10,18 @@ public class lever : MonoBehaviour
     public Transform target;
     public Vector3 targerPosOffset = new Vector3(0, -20, 0);
 
+    [Inject] private readonly AudioManager _audioManager;
+    [Inject] private readonly VanishingTextUI _vanishingTextUI;
+
     void Update()
     {
         if (isPlayerClose && Input.GetKeyDown(KeyCode.E) && !pulled)
         {
             pulled = true;
+
+            _audioManager.PlaySFX(AudioClipEnum.Switch);
+            _vanishingTextUI.ShowMessage("Lever pulled!", 2f);
+
             Debug.Log("lever pulled!");
             StartCoroutine(MoveLamp());
         }
@@ -25,6 +32,9 @@ public class lever : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             isPlayerClose = true;
+
+            _vanishingTextUI.ShowMessage("Press E to pull lever.", 2f);
+
             Debug.Log("press e to pull lever");
         }
     }
@@ -39,6 +49,8 @@ public class lever : MonoBehaviour
 
     private IEnumerator MoveLamp()
     {
+        _audioManager.PlaySFX(AudioClipEnum.Chandelier);
+
         Vector3 startPos = target.localPosition;
         Vector3 endPos = startPos + targerPosOffset;
         float timer = 0;

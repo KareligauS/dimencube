@@ -77,3 +77,8 @@ MonoBehaviour:
     _volume: 1
     _pitch: 1
     _cooldown: 0
+  bounceSFX:
+    _clip: {fileID: 8300000, guid: 37a0cc74adc564ecdae4dd0dc09982f5, type: 3}
+    _volume: 1
+    _pitch: 1
+    _cooldown: 0

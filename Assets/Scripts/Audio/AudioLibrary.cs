@@ -16,4 +16,5 @@ public class AudioLibrary : ScriptableObject
     public SoundDefinition keySFX;
     public SoundDefinition orchestraSFX;
     public SoundDefinition curiositySFX;
+    public SoundDefinition bounceSFX;
 }

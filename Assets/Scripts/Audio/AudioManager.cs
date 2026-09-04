@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 
@@ -6,6 +7,8 @@ public interface IAudioManager
     void PlaySFX(AudioClipEnum audioClipEnum);
     void PlaySFX(SoundDefinition sound);
     void StopSFX();
+    void PlayContinuousSFX(AudioClipEnum audioClipEnum);
+    void StopContinuousSFX(AudioClipEnum audioClipEnum);
     void PlayBackgroundMusic(AudioClipEnum audioClipEnum);
     void PlayBackgroundMusic(SoundDefinition sound);
 }
@@ -21,6 +24,7 @@ public class AudioManager : MonoBehaviour, IAudioManager
     private AudioSource _musicAudioSource;
     private AudioSource _sfxAudioSource;
     private IAudioSoundResolver _audioSoundResolver;
+    private readonly Dictionary<AudioClipEnum, AudioSource> _continuousSfxSources = new();
 
     void Awake()
     {
@@ -50,6 +54,41 @@ public class AudioManager : MonoBehaviour, IAudioManager
     public void StopSFX()
     {
         _sfxAudioSource.Stop();
+    }
+
+    public void PlayContinuousSFX(AudioClipEnum audioClipEnum)
+    {
+        _continuousSfxSources.TryGetValue(audioClipEnum, out var source);
+        if (source != null && source.isPlaying)
+        {
+            return;
+        }
+
+        var sound = _audioSoundResolver.Resolve(audioClipEnum);
+        if (sound == null)
+        {
+            return;
+        }
+
+        if (source == null)
+        {
+            source = CreateAudioSource($"ContinuousSFXAudioSource_{audioClipEnum}");
+            _continuousSfxSources[audioClipEnum] = source;
+        }
+
+        source.clip = sound.Clip;
+        source.volume = sound.Volume;
+        source.pitch = sound.Pitch;
+        source.loop = true;
+        source.Play();
+    }
+
+    public void StopContinuousSFX(AudioClipEnum audioClipEnum)
+    {
+        if (_continuousSfxSources.TryGetValue(audioClipEnum, out var source))
+        {
+            source.Stop();
+        }
     }
 
     public void PlaySFX(SoundDefinition sound)

@@ -31,6 +31,7 @@ public class AudioSoundResolver : IAudioSoundResolver
             AudioClipEnum.Key => _audioLibrary.keySFX,
             AudioClipEnum.Orchestra => _audioLibrary.orchestraSFX,
             AudioClipEnum.Curiosity => _audioLibrary.curiositySFX,
+            AudioClipEnum.Bounce => _audioLibrary.bounceSFX,
             _ => null,
         };
 

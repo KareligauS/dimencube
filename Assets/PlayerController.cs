@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             _audioManager.StopContinuousSFX(AudioClipEnum.Sliding);
 
-            if (Mathf.Abs(moveInput) > 0)
+            if (Mathf.Abs(moveInput) > 0 && isGrounded)
             {
                 _audioManager.PlayContinuousSFX(AudioClipEnum.Walking);
             }

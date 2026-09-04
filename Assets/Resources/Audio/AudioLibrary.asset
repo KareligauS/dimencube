@@ -39,7 +39,7 @@ MonoBehaviour:
     _cooldown: 0
   walkingSFX:
     _clip: {fileID: 8300000, guid: 900bb3bde213d4c8faf8b8d8bbcd0a18, type: 3}
-    _volume: 1
+    _volume: 0.3
     _pitch: 1
     _cooldown: 0
   switchSFX:
@@ -54,7 +54,7 @@ MonoBehaviour:
     _cooldown: 0
   fallSFX:
     _clip: {fileID: 8300000, guid: 7b4a5623691974f7181ef883a2474789, type: 3}
-    _volume: 1
+    _volume: 0.15
     _pitch: 1
     _cooldown: 0
   slidingSFX:
@@ -78,7 +78,7 @@ MonoBehaviour:
     _pitch: 1
     _cooldown: 0
   bounceSFX:
-    _clip: {fileID: 8300000, guid: 37a0cc74adc564ecdae4dd0dc09982f5, type: 3}
+    _clip: {fileID: 8300000, guid: 693267dd5f7fc45debb8e8e1f58724ac, type: 3}
     _volume: 1
     _pitch: 1
     _cooldown: 0

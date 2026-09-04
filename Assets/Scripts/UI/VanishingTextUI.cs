@@ -50,8 +50,9 @@ public class VanishingTextUI : MonoBehaviour, IVanishingTextUI
     private void UpdateBackgroundSize()
     {
         _text.ForceMeshUpdate();
-        var textSize = _text.textBounds.size;
-        _backgroundRect.sizeDelta = (Vector2)textSize + _backgroundPadding * 2f;
+        var bounds = _text.textBounds;
+        _backgroundRect.sizeDelta = (Vector2)bounds.size + _backgroundPadding * 2f;
+        _backgroundRect.anchoredPosition = _text.rectTransform.anchoredPosition + (Vector2)bounds.center;
     }
 
     private void Start()

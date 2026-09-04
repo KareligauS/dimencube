@@ -3871,8 +3871,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   hasKey: 0
+  openedTheDoor: 0
   player: {fileID: 595843777}
   roomPivot: {fileID: 1381850871}
+  doorOpenDelay: 1.5
+  endSceneName: End
 --- !u!1 &735030587
 GameObject:
   m_ObjectHideFlags: 0
@@ -6739,7 +6742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VanishingTextUI
   _text: {fileID: 2119245819}
   _canvasGroup: {fileID: 1587909541}
-  _defaultMessage: 'Move: A / D    Jump: Space'
+  _defaultMessage: 'Move: A / D    Jump: Space    R - Restart'
   _defaultDuration: 10
   _fadeDuration: 0.5
   _backgroundColor: {r: 0, g: 0, b: 0, a: 0.6}
@@ -9645,7 +9648,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -1588.9622, w: 0}
+  m_margin: {x: 0.003967285, y: 0, z: -1588.9622, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9675,7 +9678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 558, y: -307}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807

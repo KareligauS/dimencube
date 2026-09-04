@@ -5,15 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Karel.unity
     guid: a94dfd759b3c5440ea581176e32ac539
   - enabled: 1
-    path: Assets/Scenes/End.unity
-    guid: 1a25e7b5046c043a6930f5faee13d182
-  - enabled: 1
     path: Assets/teoo.unity
     guid: 567142d1af6933c4fb0b7ce1487af467
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 1a25e7b5046c043a6930f5faee13d182
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

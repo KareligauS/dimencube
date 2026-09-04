@@ -13,7 +13,7 @@ public class VanishingTextUI : MonoBehaviour, IVanishingTextUI
 {
     [SerializeField] private TMP_Text _text;
     [SerializeField] private CanvasGroup _canvasGroup;
-    [SerializeField] private string _defaultMessage = "Move: A / D    Jump: Space    Interact: E";
+    [SerializeField] private string _defaultMessage = "Move: A / D    Jump: Space    Interact: E    Reload: R";
     [SerializeField] private float _defaultDuration = 10f;
     [SerializeField] private float _fadeDuration = 0.5f;
     [SerializeField] private Color _backgroundColor = new Color(0f, 0f, 0f, 0.6f);

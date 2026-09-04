@@ -24,6 +24,14 @@ public class manager : MonoBehaviour
         savedRotation = roomPivot.rotation;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     public void UpdateSpawnPoint(Vector3 newPos, Quaternion newRotation)
     {
         savedPos = newPos;

@@ -1,11 +1,17 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 public class manager : MonoBehaviour
 {
     public bool hasKey = false;
+    public bool openedTheDoor = false;
     public Transform player;
     public Transform roomPivot;
+    [SerializeField] private float doorOpenDelay = 1.5f;
+    [SerializeField] private string endSceneName = "End";
+    private bool isOpeningDoor = false;
     private Vector3 savedPos;
     private Quaternion savedRotation;
 
@@ -52,18 +58,39 @@ public class manager : MonoBehaviour
 
     public void TryUnlockDoor()
     {
-        if (hasKey)
-        {
-            _audioManager.PlaySFX(AudioClipEnum.Door);
-
-            Debug.Log("you win!");
-        }
-        else
+        if (!hasKey)
         {
             _vanishingTextUI.ShowMessage("Door is locked. You need the Key!", 5f);
-            
+
             Debug.Log("door is locked!");
+            return;
         }
+
+        if (openedTheDoor)
+        {
+            SceneManager.LoadScene(endSceneName);
+            return;
+        }
+
+        if (isOpeningDoor) return;
+
+        StartCoroutine(OpenDoorRoutine());
     }
 
+    private IEnumerator OpenDoorRoutine()
+    {
+        isOpeningDoor = true;
+
+        _audioManager.PlaySFX(AudioClipEnum.Door);
+        _vanishingTextUI.ShowMessage("Unlocking...", doorOpenDelay);
+
+        yield return new WaitForSeconds(doorOpenDelay);
+
+        openedTheDoor = true;
+        isOpeningDoor = false;
+
+        _vanishingTextUI.ShowMessage("Door opened! Press E to leave.", 3f);
+
+        Debug.Log("you win!");
+    }
 }
